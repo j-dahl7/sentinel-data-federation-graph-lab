@@ -1,0 +1,3 @@
+resourceId,resourceName,resourceType,criticality,detectionHint
+/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-federation-lab/providers/Microsoft.KeyVault/vaults/kv-crown-jewel,kv-crown-jewel,Microsoft.KeyVault/vaults,crown-jewel,Unexpected direct secret access
+/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-federation-lab/providers/Microsoft.Storage/storageAccounts/stfederationlab,stfederationlab,Microsoft.Storage/storageAccounts,high,Unexpected owner-level blob access

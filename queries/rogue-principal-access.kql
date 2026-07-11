@@ -1,0 +1,7 @@
+let ResourceCriticality = ResourceCriticality_federationlab;
+let PrincipalResourceAccess = PrincipalResourceAccess_federationlab;
+PrincipalResourceAccess
+| where principalDisplayName == "shadow-sync-prod-sp"
+| join kind=inner ResourceCriticality on resourceId
+| project principalDisplayName, resourceName, criticality, accessRole, accessSource, detectionHint, riskLabel
+| sort by criticality asc, resourceName asc

@@ -1,0 +1,12 @@
+let ResourceCriticality = ResourceCriticality_federationlab;
+let PrincipalResourceAccess = PrincipalResourceAccess_federationlab;
+PrincipalResourceAccess
+| join kind=inner ResourceCriticality on resourceId
+| where criticality in ("crown-jewel", "high")
+| summarize
+    AccessRoles = make_set(accessRole),
+    AccessSources = make_set(accessSource),
+    ResourceCount = dcount(resourceName),
+    Resources = make_set(resourceName)
+  by principalDisplayName, principalType, riskLabel
+| sort by ResourceCount desc, principalDisplayName asc

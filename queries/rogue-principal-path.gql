@@ -1,0 +1,4 @@
+MATCH (sp:EntraServicePrincipal)-[rel_access:CAN_ACCESS]->(r:AzureResource)
+WHERE sp.riskLabel = 'simulated-bad-actor'
+RETURN sp, r, rel_access
+LIMIT 50
