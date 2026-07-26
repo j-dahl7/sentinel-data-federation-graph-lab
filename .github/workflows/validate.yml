@@ -1,0 +1,23 @@
+name: Validate synthetic federation lab
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Validate schemas, synthetic IDs, and queries
+        run: python3 scripts/validate_fixtures.py
+      - name: Run offline contract tests
+        run: python3 -m unittest discover -s tests -v

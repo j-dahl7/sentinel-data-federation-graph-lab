@@ -1,0 +1,5 @@
+principalId,principalDisplayName,resourceId,accessRole,accessSource,riskLabel
+urn:nls:synthetic:principal:shadow-sync-prod-sp,shadow-sync-prod-sp,urn:nls:synthetic:resource:key-vault:crown-jewel-vault,Key Vault Secrets Officer,UnknownDirectGrant,simulated-bad-actor
+urn:nls:synthetic:principal:shadow-sync-prod-sp,shadow-sync-prod-sp,urn:nls:synthetic:resource:storage:security-archive,Storage Blob Data Owner,UnknownDirectGrant,simulated-bad-actor
+urn:nls:synthetic:principal:sentinel-data-federation-lab-sp,sentinel-data-federation-lab-sp,urn:nls:synthetic:resource:key-vault:crown-jewel-vault,Key Vault Secrets User,InheritedPath,expected
+urn:nls:synthetic:principal:sentinel-data-federation-lab-sp,sentinel-data-federation-lab-sp,urn:nls:synthetic:resource:storage:security-archive,Storage Blob Data Reader,RoleAssignment,expected

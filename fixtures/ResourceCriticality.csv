@@ -1,0 +1,3 @@
+resourceId,resourceName,resourceType,criticality,detectionHint
+urn:nls:synthetic:resource:key-vault:crown-jewel-vault,crown-jewel-vault,Microsoft.KeyVault/vaults,crown-jewel,Direct high-privilege access to a crown-jewel secret store
+urn:nls:synthetic:resource:storage:security-archive,security-archive,Microsoft.Storage/storageAccounts,high,Owner access to a high-value security archive

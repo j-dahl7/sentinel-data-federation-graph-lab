@@ -1,0 +1,34 @@
+[
+  {
+    "principalId": "urn:nls:synthetic:principal:shadow-sync-prod-sp",
+    "principalDisplayName": "shadow-sync-prod-sp",
+    "resourceId": "urn:nls:synthetic:resource:key-vault:crown-jewel-vault",
+    "accessRole": "Key Vault Secrets Officer",
+    "accessSource": "UnknownDirectGrant",
+    "riskLabel": "simulated-bad-actor"
+  },
+  {
+    "principalId": "urn:nls:synthetic:principal:shadow-sync-prod-sp",
+    "principalDisplayName": "shadow-sync-prod-sp",
+    "resourceId": "urn:nls:synthetic:resource:storage:security-archive",
+    "accessRole": "Storage Blob Data Owner",
+    "accessSource": "UnknownDirectGrant",
+    "riskLabel": "simulated-bad-actor"
+  },
+  {
+    "principalId": "urn:nls:synthetic:principal:sentinel-data-federation-lab-sp",
+    "principalDisplayName": "sentinel-data-federation-lab-sp",
+    "resourceId": "urn:nls:synthetic:resource:key-vault:crown-jewel-vault",
+    "accessRole": "Key Vault Secrets User",
+    "accessSource": "InheritedPath",
+    "riskLabel": "expected"
+  },
+  {
+    "principalId": "urn:nls:synthetic:principal:sentinel-data-federation-lab-sp",
+    "principalDisplayName": "sentinel-data-federation-lab-sp",
+    "resourceId": "urn:nls:synthetic:resource:storage:security-archive",
+    "accessRole": "Storage Blob Data Reader",
+    "accessSource": "RoleAssignment",
+    "riskLabel": "expected"
+  }
+]

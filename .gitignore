@@ -1,0 +1,11 @@
+.env
+.env.*
+*.tfstate
+*.tfstate.*
+*.token
+credentials*.json
+tenant-data/
+generated/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
