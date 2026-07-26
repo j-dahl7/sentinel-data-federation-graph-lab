@@ -1,0 +1,7 @@
+let ResourceCriticality = ResourceCriticality_federationlab;
+let PrincipalResourceAccess = PrincipalResourceAccess_federationlab;
+PrincipalResourceAccess
+| join kind=inner ResourceCriticality on resourceId
+| where criticality in ("crown-jewel", "high")
+| project principalDisplayName, resourceName, criticality, accessRole, accessSource, riskLabel
+| sort by riskLabel asc, criticality asc

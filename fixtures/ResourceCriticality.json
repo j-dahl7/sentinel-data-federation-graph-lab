@@ -1,0 +1,16 @@
+[
+  {
+    "resourceId": "urn:nls:synthetic:resource:key-vault:crown-jewel-vault",
+    "resourceName": "crown-jewel-vault",
+    "resourceType": "Microsoft.KeyVault/vaults",
+    "criticality": "crown-jewel",
+    "detectionHint": "Direct high-privilege access to a crown-jewel secret store"
+  },
+  {
+    "resourceId": "urn:nls:synthetic:resource:storage:security-archive",
+    "resourceName": "security-archive",
+    "resourceType": "Microsoft.Storage/storageAccounts",
+    "criticality": "high",
+    "detectionHint": "Owner access to a high-value security archive"
+  }
+]
