@@ -65,11 +65,17 @@ a preflight checklist to revalidate, not as permanent product guarantees:
 | Source networking | Federated source must be publicly reachable; private endpoints were unsupported |
 | Key Vault networking | Public access from all networks was required during connector setup; restrict it again immediately after creation if current behavior permits |
 | Federation behavior | Read-only; the Sentinel query path cannot write back to the source |
-| Visibility delay | Up to 15 minutes for new federated rows in KQL and up to 24 hours in notebooks |
+| KQL data visibility | Query optimization can delay newly added federated data becoming queryable by up to 15 minutes |
+| Initial notebook table visibility | After enabling federation for the first time, tables can take up to 24 hours to appear in notebooks; this is not a per-row notebook refresh SLA |
 | Encryption | Customer-managed-key workspaces could not use the data-lake federation/graph experience |
 | Scale | Maximum 100 federation connector instances per tenant |
 | Authoring | Custom-graph authoring used Jupyter through the Microsoft Sentinel VS Code extension |
 | Cost | Federation avoided Sentinel ingestion/storage charges, but queries used data-lake/advanced-insights meters; graph operations used the graph meter; source-platform charges remained separate |
+
+Microsoft's [federated-data access guidance](https://learn.microsoft.com/en-us/azure/sentinel/datalake/using-data-federation)
+distinguishes initial table appearance from querying its data. Check source
+refresh and actual query results when validating newly added rows; this lab has
+not measured or established a per-row notebook visibility guarantee.
 
 ## 1. Validate the local artifacts
 
