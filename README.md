@@ -43,9 +43,14 @@ intended to be pointed at a production connector unchanged.
   credential scanner.
 - Data federation support, connector names, permissions, graph limits, and
   pricing are preview behavior and can change. Confirm them before every run.
-- The article's validated public-source path uses ADLS, Databricks, or Fabric.
-  Private-endpoint-only storage was outside that path; do not assume it works.
-- For an ADLS source, prepare Delta or Parquet data. Use a same-tenant,
+- The article's historical public-source validation used ADLS Gen2. Microsoft
+  also documents Databricks and Fabric connectors, but those paths were not
+  validated by this lab. No live connector was re-tested for this source review.
+  Private-endpoint-only storage was outside the historical path; do not assume it works.
+- For an ADLS source, prepare Delta tables backed by Parquet files, including
+  the Delta transaction log; standalone Parquet files are not equivalent.
+  Microsoft's [connector setup guidance](https://learn.microsoft.com/en-us/azure/sentinel/datalake/data-federation-setup#tables-dont-appear)
+  requires Delta-formatted Parquet tables. Use a same-tenant,
   read-only service principal; place any short-lived secret in Key Vault, never
   in a query, notebook, fixture, or repository variable.
 - Use least privilege. At validation time, the managed identity needed Key
@@ -93,7 +98,7 @@ GUID- or subscription-shaped identifier appears in an executable artifact.
 ## 2. Prepare a disposable federated source
 
 1. Copy the two CSV datasets into an access-restricted lab staging area.
-2. Convert them to supported Delta or Parquet tables named
+2. Convert them to Delta-formatted Parquet tables named
    `ResourceCriticality` and `PrincipalResourceAccess`.
 3. Keep the columns and string values unchanged for the first validation run.
 4. Grant the source identity read-only access to only those lab paths.
@@ -173,7 +178,7 @@ Cleanup is part of the exercise. In this order:
 1. stop and delete any scheduled graph/transformation job;
 2. delete the custom graph and confirm it no longer returns nodes or edges;
 3. remove both `_federationlab` aliases/connectors;
-4. remove the two staged Delta/Parquet tables and any generated notebook output;
+4. remove the two staged Delta tables and any generated notebook output;
 5. revoke the source identity's lab-path and Key Vault role assignments;
 6. delete its short-lived secret and the disposable identity if it has no other
    approved owner; and
